@@ -18,8 +18,10 @@ import { Button } from '@/lib/components/ui/button';
 // import Model from '@/lib/components/ui/model2';
 import awardImage from '../../../../public/assets/award.svg';
 import Ellipse from '../../../../public/assets/ellipse';
-import ocmTrophy from '../../../../public/assets/ocm-trophy.png';
-import soraTrophy from '../../../../public/assets/sora-trophy.png';
+import ocmGold from '../../../../public/assets/ocm-gold.png';
+import soraGold from '../../../../public/assets/sora-gold.png';
+import soraSilver from '../../../../public/assets/sora-silver.png';
+import soraBronze from '../../../../public/assets/sora-bronze.png';
 import { fontDMSans400, fontRedHatText } from '@/lib/styles/fonts';
 import { cn, extractSubstring } from '@/lib/utils';
 import Image from 'next/image';
@@ -97,66 +99,66 @@ const styles = {
 const awards = [
   {
     id: 1,
-    fullName: 'Playoff Final',
-    champion: '2023 Championship',
-    year: 'Bitcoin Bulls',
-    img: awardImage,
-    model_id: null,
+    fullName: 'Bitcoin Olympics Hackathon',
+    champion: 'OCM - 1st Place',
+    year: 'OnChain Trophy',
+    img: ocmGold,
+    model_id: 2,
   },
   {
     id: 2,
     fullName: 'Bitcoin Olympics Hackathon',
-    champion: 'OCM Grand Prize',
-    year: 'TBD',
-    img: ocmTrophy,
+    champion: 'OCM - 1st Place',
+    year: 'OnChain Trophy',
+    img: ocmGold,
     model_id: 2,
   },
   {
     id: 3,
     fullName: 'Bitcoin Olympics Hackathon',
-    champion: 'OCM 2nd Place',
-    year: 'TBD',
-    img: ocmTrophy,
-    model_id: 3,
+    champion: 'Sora Ventures - 1st Place',
+    year: 'Nostric',
+    img: soraGold,
+    model_id: 1,
   },
   {
     id: 4,
     fullName: 'Bitcoin Olympics Hackathon',
-    champion: 'OCM 3rd Place',
-    year: 'TBD',
-    img: ocmTrophy,
-    model_id: 4,
+    champion: 'Sora Ventures - 2nd Place',
+    year: 'xBTCBot',
+    img: soraSilver,
+    model_id: 5,
   },
   {
     id: 5,
     fullName: 'Bitcoin Olympics Hackathon',
-    champion: 'Sora Grand Prize',
-    year: 'TBD',
-    img: soraTrophy,
-    model_id: 1,
+    champion: 'Sora Ventures - 2nd Place',
+    year: 'xBTCBot',
+    img: soraSilver,
+    model_id: 5,
   },
   {
     id: 6,
     fullName: 'Bitcoin Olympics Hackathon',
-    champion: 'Sora 2nd Place',
-    year: 'TBD',
-    img: soraTrophy,
+    champion: 'Sora Ventures - 2nd Place',
+    year: 'xBTCBot',
+    img: soraSilver,
     model_id: 5,
   },
   {
     id: 7,
     fullName: 'Bitcoin Olympics Hackathon',
-    champion: 'Sora 3rd Place',
-    year: 'TBD',
-    img: soraTrophy,
+    champion: 'Sora Ventures - 3rd Place',
+    year: 'Smart Contract GPT',
+    img: soraBronze,
     model_id: 6,
   },
   {
     id: 8,
     fullName: 'Bitcoin Olympics Hackathon',
-    champion: 'Sora 4th Place',
-    year: 'TBD',
-    img: soraTrophy,
+    champion: 'Sora Ventures - 3rd Place',
+    year: 'Smart Contract GPT',
+    img: soraBronze,
     model_id: 6,
   },
 ];
@@ -536,20 +538,6 @@ const AwardDetails = () => {
                       </div>
                       <div className={cn(styles.infoContainer)}>
                         {award.details.blockheight}
-                      </div>
-                    </div>
-                  </div>
-                  <div className={cn('flex', styles.container)}>
-                    <div className="w-full">
-                      <div className={cn(styles.titleContainer)}>LOCATION</div>
-                      <div className={cn(styles.infoContainer)}>
-                        {extractSubstring(award.details.location, 5, 5)}
-                      </div>
-                    </div>
-                    <div className="w-full">
-                      <div className={cn(styles.titleContainer)}>OUTPUT</div>
-                      <div className={cn(styles.infoContainer)}>
-                        {extractSubstring(award.details.output, 5, 5)}
                       </div>
                     </div>
                   </div>

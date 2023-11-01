@@ -5,9 +5,10 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { FaFilter } from 'react-icons/fa';
 
-import awardImage from '../../../../public/assets/award.svg';
-import ocmTrophy from '../../../../public/assets/ocm-trophy.png';
-import soraTrophy from '../../../../public/assets/sora-trophy.png';
+import ocmGold from '../../../../public/assets/ocm-gold.png';
+import soraGold from '../../../../public/assets/sora-gold.png';
+import soraSilver from '../../../../public/assets/sora-silver.png';
+import soraBronze from '../../../../public/assets/sora-bronze.png';
 import {
   Accordion,
   AccordionContent,
@@ -24,88 +25,81 @@ const filtersData = [
   {
     id: 0,
     name: 'Sport',
-    value: 2,
-    children: [
-      { id: 0, name: 'Hackathon', value: 7 },
-      { id: 1, name: 'Basketball', value: 1 },
-    ],
+    value: 1,
+    children: [{ id: 0, name: 'Hackathon', value: 8 }],
   },
   {
     id: 1,
     name: 'Organization',
-    value: 2,
-    children: [
-      { id: 0, name: 'Bitcoin Startup Lab', value: 7 },
-      { id: 1, name: 'Blockchain Basketball Assoc.', value: 1 },
-    ],
+    value: 1,
+    children: [{ id: 0, name: 'Bitcoin Startup Lab', value: 8 }],
   },
 ];
 
 const awards = [
   {
     id: 1,
-    fullName: 'Playoff Final',
-    champion: '2023 Championship',
-    year: 'Bitcoin Bulls',
-    img: awardImage,
-    model_id: null,
+    fullName: 'Bitcoin Olympics Hackathon',
+    champion: 'OCM - 1st Place',
+    year: 'OnChain Trophy',
+    img: ocmGold,
+    model_id: 2,
   },
   {
     id: 2,
     fullName: 'Bitcoin Olympics Hackathon',
-    champion: 'OCM Grand Prize',
-    year: 'TBD',
-    img: ocmTrophy,
+    champion: 'OCM - 1st Place',
+    year: 'OnChain Trophy',
+    img: ocmGold,
     model_id: 2,
   },
   {
     id: 3,
     fullName: 'Bitcoin Olympics Hackathon',
-    champion: 'OCM 2nd Place',
-    year: 'TBD',
-    img: ocmTrophy,
-    model_id: 2,
+    champion: 'Sora Ventures - 1st Place',
+    year: 'Nostric',
+    img: soraGold,
+    model_id: 1,
   },
   {
     id: 4,
     fullName: 'Bitcoin Olympics Hackathon',
-    champion: 'OCM 3rd Place',
-    year: 'TBD',
-    img: ocmTrophy,
-    model_id: 2,
+    champion: 'Sora Ventures - 2nd Place',
+    year: 'xBTCBot',
+    img: soraSilver,
+    model_id: 5,
   },
   {
     id: 5,
     fullName: 'Bitcoin Olympics Hackathon',
-    champion: 'Sora Grand Prize',
-    year: 'TBD',
-    img: soraTrophy,
-    model_id: 1,
+    champion: 'Sora Ventures - 2nd Place',
+    year: 'xBTCBot',
+    img: soraSilver,
+    model_id: 5,
   },
   {
     id: 6,
     fullName: 'Bitcoin Olympics Hackathon',
-    champion: 'Sora 2nd Place',
-    year: 'TBD',
-    img: soraTrophy,
-
-    model_id: 1,
+    champion: 'Sora Ventures - 2nd Place',
+    year: 'xBTCBot',
+    img: soraSilver,
+    model_id: 5,
   },
   {
     id: 7,
     fullName: 'Bitcoin Olympics Hackathon',
-    champion: 'Sora 3rd Place',
-    year: 'TBD',
-    img: soraTrophy,
-    model_id: 1,
+    champion: 'Sora Ventures - 3rd Place',
+    year: 'Smart Contract GPT',
+    img: soraBronze,
+    model_id: 6,
   },
   {
     id: 8,
     fullName: 'Bitcoin Olympics Hackathon',
-    champion: 'Sora 4th Place',
-    year: 'TBD',
-    img: soraTrophy,
-    model_id: 1,
+    champion: 'Sora Ventures - 3rd Place',
+    year: 'Smart Contract GPT',
+    img: soraBronze,
+    model_id: 6,
   },
 ];
 

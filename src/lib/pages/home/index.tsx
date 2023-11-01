@@ -6,16 +6,13 @@ import { Search, MoreHorizontal } from 'lucide-react';
 import type { NextPage } from 'next';
 import Link from 'next/link';
 import { useState, Suspense } from 'react';
-
-import awardImage from '../../../../public/assets/award.svg';
-import ocmTrophy from '../../../../public/assets/ocm-trophy.png';
-import soraTrophy from '../../../../public/assets/sora-trophy.png';
-// import Tropy from "../../../../public/tropy.glb"
-// import TropyModel from '../../../../public/assets/tropy.glb';
+import ocmGold from '../../../../public/assets/ocm-gold.png';
+import soraGold from '../../../../public/assets/sora-gold.png';
+import soraSilver from '../../../../public/assets/sora-silver.png';
 import AwardCard from '@/lib/components/ui/awardCard';
 import { Button } from '@/lib/components/ui/button';
 import InputWithIcon from '@/lib/components/ui/inputWithIcon';
-// import Model from '@/lib/components/ui/model2';
+
 import {
   Table,
   TableBody,
@@ -34,33 +31,43 @@ import {
 } from '@/lib/components/ui/dropdown-menu';
 import { fontRedHatDisplay, fontRedHatMono } from '@/lib/styles/fonts';
 import { cn } from '@/lib/utils';
-import Model1 from '@/lib/components/ui/model1';
+import Model2 from '@/lib/components/ui/model2';
 
 const awards = [
   {
     id: 1,
-    fullName: 'Playoff Final',
-    champion: '2023 Championship',
-    year: 'Bitcoin Bulls',
-    img: awardImage,
+    fullName: 'Bitcoin Olympics Hackathon',
+    champion: 'Sora Ventures 1st Place',
+    year: 'Nostric',
+    img: soraGold,
   },
   {
     id: 5,
     fullName: 'Bitcoin Olympics Hackathon',
-    champion: 'Sora Grand Prize',
-    year: 'TBD',
-    img: soraTrophy,
+    champion: 'Sora Ventures 2nd Place',
+    year: 'xBTCBot',
+    img: soraSilver,
   },
   {
     id: 2,
     fullName: 'Bitcoin Olympics Hackathon',
-    champion: 'OCM Grand Prize',
-    year: 'TBD',
-    img: ocmTrophy,
+    champion: 'OCM 1st Place',
+    year: 'Onchain Tropgy',
+    img: ocmGold,
   },
 ];
 
 const table = [
+  {
+    id: 36049912,
+    type: 'Results',
+    name: 'Bitcoin Olympics Hackathon',
+    timestamp: 'October 28, 2023 @ 2:47 AM',
+    parent:
+      '00a8f6620da9ffd454b5d2c8d78de61699c7201d2fb49f8eacf76ad2f41ef23ai0',
+    ordinalId:
+      '00a8f6620da9ffd454b5d2c8d78de61699c7201d2fb49f8eacf76ad2f41ef23ai0',
+  },
   {
     id: 34880662,
     type: 'Organization',
@@ -237,7 +244,7 @@ const Home: NextPage = () => {
             {/* <OrbitControls /> */}
             <ambientLight intensity={1} color="#FFF" />
             <Environment files="/assets/background.hdr" />
-            <Model1 />
+            <Model2 />
           </Canvas>
         </Suspense>
       </div>

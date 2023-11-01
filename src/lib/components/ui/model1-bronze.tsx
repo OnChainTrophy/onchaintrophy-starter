@@ -5,6 +5,7 @@ import { useGLTF } from '@react-three/drei';
 import { useFrame, useThree } from '@react-three/fiber';
 import { useRef } from 'react';
 import { useEffect } from 'react'; // Import useEffect
+import * as THREE from 'three';
 
 const Model1 = () => {
   const { nodes, materials } = useGLTF('/assets/sora.glb') as any;
@@ -32,22 +33,32 @@ const Model1 = () => {
 
   useEffect(() => {
     if (ref1.current) {
-      const material = ref1.current.material as THREE.MeshStandardMaterial;
-      material.color.set('#957644');
-      material.opacity = 1;
+      const material1 = ref1.current.material as THREE.MeshStandardMaterial;
+      material1.color.set('#957644');
+      material1.metalness = 0.8;
+      material1.roughness = 0.2;
+      material1.transparent = false; // Set transparency to off
+      material1.depthWrite = true;
     }
     if (ref2.current) {
-      const material = ref2.current.material as THREE.MeshStandardMaterial;
-      material.color.set('#957644');
-      material.opacity = 1;
-      material.metalness = 0.8;
-      material.roughness = 0.2;
+      const material2 = ref2.current.material as THREE.MeshStandardMaterial;
+      material2.color.set('#957644');
+      material2.metalness = 0.8;
+      material2.roughness = 0.2;
+      material2.transparent = false; // Set transparency to off
+      material2.depthWrite = true;
     }
     if (ref3.current) {
-      (ref3.current.material as THREE.MeshBasicMaterial).color.set('#d5b270');
+      const material3 = ref3.current.material as THREE.MeshStandardMaterial;
+      material3.color.set('#957644');
+      material3.metalness = 0.8;
+      material3.roughness = 0.2;
     }
     if (ref4.current) {
-      (ref4.current.material as THREE.MeshBasicMaterial).color.set('#d5b270');
+      const material4 = ref4.current.material as THREE.MeshStandardMaterial;
+      material4.color.set('#957644');
+      material4.metalness = 0.8;
+      material4.roughness = 0.2;
     }
   }, []);
 

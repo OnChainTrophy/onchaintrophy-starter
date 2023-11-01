@@ -8,7 +8,9 @@ import { useRef } from 'react';
 const Model2 = () => {
   const { nodes, materials } = useGLTF('/assets/ocm.glb') as any;
   const ref = useRef<THREE.Mesh>(null);
-  console.log(nodes, materials);
+
+  const accumulatedRotation = useRef(0); // To keep track of total rotation
+  const isPaused = useRef(false); // To check if the rotation is paused
 
   const ref1 = useRef<THREE.Mesh>(null);
   const ref2 = useRef<THREE.Mesh>(null);
@@ -18,12 +20,30 @@ const Model2 = () => {
   const ref6 = useRef<THREE.Mesh>(null);
 
   useFrame(() => {
-    if (ref1.current) ref1.current.rotation.y -= 0.001; //main
-    if (ref2.current) ref2.current.rotation.y += 0.003; // bottom
-    if (ref3.current) ref3.current.rotation.y -= 0.003; //top
-    if (ref4.current) ref4.current.rotation.y -= 0.001;
-    if (ref5.current) ref5.current.rotation.y += 0.003;
-    if (ref6.current) ref6.current.rotation.y -= 0.002;
+    if (isPaused.current) return; // Don't rotate if paused
+
+    // Check if ref1 has completed 2 full rotations
+    if (ref1.current && accumulatedRotation.current >= 4 * Math.PI) {
+      isPaused.current = true; // Pause rotations
+
+      // Resume after 1.5 seconds
+      setTimeout(() => {
+        isPaused.current = false;
+        accumulatedRotation.current = 0; // Reset accumulated rotation
+      }, 1500);
+      return;
+    }
+
+    // Normal rotation logic
+    if (ref1.current) {
+      ref1.current.rotation.y -= 0.0075;
+      accumulatedRotation.current += 0.0075; // Update accumulated rotation
+    }
+    if (ref2.current) ref2.current.rotation.y += 0.0075; // bottom b
+    if (ref3.current) ref3.current.rotation.y -= 0.015; //top b
+    if (ref4.current) ref4.current.rotation.y += 0.0075; // ears
+    if (ref5.current) ref5.current.rotation.y += 0.0075; // outer
+    if (ref6.current) ref6.current.rotation.y -= 0.005; // base
   });
 
   useThree((context) => {
